@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>RankVidz</title>-->
+  {% load  static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{#  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">#}
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+{#  <script src="{% static 'JS/mycustom.js' %}"></script>#}
+
+
+<style>
+    .custom-ss-navbar{
+        background:#676767 !important;
+    }
+     .custom-ss-navbar a{
+        color:#fff !important;
+    }
+    #navbarSupportedContent ul{
+        float:right !important;
+    }
+    #navbarSupportedContent ul li a{
+        color:#fff;
+    }
+<!--    body{-->
+<!--      background:#lightgray !important;-->
+<!--    }-->
+</style>
+
+</head>
+<body>
+<div id="cutom-top"></div>
+<div id="pop-up-dialog" class="modal " role="dialog"></div>
+<nav class="navbar navbar-expand-lg navbar-light custom-ss-navbar sticky-top">
+  <div class="container">
+{#  <a class="navbar-brand" href="{% url 'rankvidz' %}"><img src="{% static '/images/narendralatest3.png' %}" width="160px"></a>#}
+  <button class="navbar-toggler custom-ss-nav-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav custom-ss-header-ul">
+      {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a>Welcome {{ user }}</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout_user' %}">Logout</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+</nav>
+
+<script>
+  $(function() {
+  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+});
+
+</script>
+</body>
+</html>
